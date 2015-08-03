@@ -3,16 +3,15 @@ using System.Collections;
 
 [ExecuteInEditMode]
 [RequireComponent (typeof(Camera))]
-public class CRTeffect : MonoBehaviour {
+public class CRTCamera : MonoBehaviour {
 	public Material effectMaterial;
+	public int screenWidth;
+	public int screenHeight;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	void OnRenderImage (RenderTexture source, RenderTexture destination)
 	{
+		effectMaterial.SetInt("_width",screenWidth);
+		effectMaterial.SetInt("_height",screenHeight);
 		source.filterMode = FilterMode.Point;
 		Graphics.Blit (source, destination, effectMaterial);
 	}
