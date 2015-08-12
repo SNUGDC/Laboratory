@@ -13,6 +13,7 @@ public class CRTCamera : MonoBehaviour {
 		effectMaterial.SetInt("_width",screenWidth);
 		effectMaterial.SetInt("_height",screenHeight);
 		source.filterMode = FilterMode.Point;
+		source.useMipMap = false;
 		Graphics.Blit (source, destination, effectMaterial);
 	}
 }
